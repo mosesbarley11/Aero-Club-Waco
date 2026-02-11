@@ -214,19 +214,13 @@
             border-color: var(--accent);
         }
 
-        .team-member-avatar {
-            width: 72px;
-            height: 72px;
-            background: linear-gradient(135deg, var(--accent) 0%, #ea580c 100%);
+        .team-member-photo {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
+            object-fit: cover;
+            border: 3px solid var(--accent);
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
         }
 
@@ -347,15 +341,19 @@
             <p>Meet the students driving innovation at Waco Aero.</p>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-member-avatar">MB</div>
+                    <img src="moses.jpg" alt="Moses Barley" class="team-member-photo">
                     <h4>Moses Barley</h4>
                     <p class="role">Co-Founder & President</p>
+                    <p class="contact-info"><a href="mailto:mosesbarley11@gmail.com">mosesbarley11@gmail.com</a></p>
+                    <p class="contact-info"><a href="tel:+12542995578">+1 (254) 299-5578</a></p>
                     <p>Passionate about aerospace engineering and 3D printing technology.</p>
                 </div>
                 <div class="team-member">
-                    <div class="team-member-avatar">SB</div>
+                    <img src="shephered.jpg" alt="Shepherd Barley" class="team-member-photo">
                     <h4>Shepherd Barley</h4>
                     <p class="role">Co-Founder & President</p>
+                    <p class="contact-info"><a href="mailto:shepherd.barley@gmail.com">shepherd.barley@gmail.com</a></p>
+                    <p class="contact-info"><a href="tel:+12543429087">+1 (254) 342-9087</a></p>
                     <p>Dedicated to pushing the boundaries of student-led aerospace research.</p>
                 </div>
             </div>
