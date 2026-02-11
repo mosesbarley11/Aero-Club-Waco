@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources - Waco Aero - High School Aerospace Research Club</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --deep: #0a0e1a;
@@ -19,6 +15,7 @@
             --navy: #1a2744;
             --accent: #f97316;
             --accent-light: #fb923c;
+            --accent-dark: #ea580c;
             --accent-glow: rgba(249, 115, 22, 0.15);
             --blue: #38bdf8;
             --blue-dim: #0ea5e9;
@@ -41,7 +38,7 @@
         header {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
-            padding: 3rem 0 3.5rem;
+            padding: 2rem 0 2.5rem;
             position: relative;
             overflow: hidden;
         }
@@ -78,111 +75,206 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 1.25rem;
-        }
-
-        .logo-mark {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--accent) 0%, #ea580c 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.75rem;
-            flex-shrink: 0;
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
         }
 
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.75rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--white);
-            line-height: 1.1;
-        }
-
-        h1 span {
-            color: var(--accent);
-        }
-
-        .tagline {
-            font-size: 1.05rem;
-            color: var(--text-dim);
-            font-weight: 400;
-            margin-top: 0.5rem;
-            letter-spacing: 0.02em;
+        .header-logo svg {
+            display: block;
+            max-width: 380px;
+            width: 100%;
+            height: auto;
         }
 
         /* ===== NAV ===== */
         nav {
             background-color: var(--dark);
+            border-bottom: 2px solid var(--accent);
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border);
         }
 
         nav ul {
-            list-style: none;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 0;
+            list-style: none;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         nav ul li a {
             display: block;
+            padding: 1rem 1.75rem;
             color: var(--text-dim);
             text-decoration: none;
-            padding: 0.9rem 1.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 0.03em;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            transition: all 0.25s;
-            border-bottom: 2px solid transparent;
+            transition: color 0.3s, background 0.3s;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover,
+        nav ul li a.active {
             color: var(--accent);
-            border-bottom-color: var(--accent);
-            background: rgba(249, 115, 22, 0.05);
+            background: var(--accent-glow);
         }
 
         /* ===== SECTIONS ===== */
         section {
-            background-color: var(--surface);
-            margin: 1.75rem auto;
-            padding: 2.5rem;
-            border-radius: 12px;
+            background: var(--surface);
             border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 1100px;
         }
 
-        section h2 {
-            font-family: 'Space Grotesk', sans-serif;
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
             color: var(--white);
             margin-bottom: 1.25rem;
-            font-size: 1.75rem;
-            font-weight: 700;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 0.75rem;
         }
 
-        section h2::before {
+        /* Contrail accent after h2 */
+        h2::after {
             content: '';
-            width: 4px;
-            height: 1.75rem;
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent) 0%, transparent 100%);
+        }
+
+        /* Small rocket icon before h2 */
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
             background: var(--accent);
-            border-radius: 2px;
+            clip-path: polygon(50% 0%, 65% 45%, 85% 55%, 65% 55%, 65% 85%, 55% 100%, 50% 85%, 45% 100%, 35% 85%, 35% 55%, 15% 55%, 35% 45%);
             flex-shrink: 0;
         }
 
-        section p {
-            color: var(--text);
-            margin-bottom: 0.75rem;
+        p {
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        p:last-child { margin-bottom: 0; }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.35);
+        }
+
+        /* ===== HERO BANNER ===== */
+        .hero-banner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3.5rem 2.5rem;
+            margin: 2rem auto;
+            max-width: 1100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
+        }
+
+        /* Decorative contrail swooshes in hero */
+        .hero-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            width: 120px;
+            height: 40px;
+            opacity: 0.06;
+            background: 
+                linear-gradient(to right, transparent, var(--accent)) no-repeat 0 8px / 100% 2px,
+                linear-gradient(to right, transparent 20%, var(--accent)) no-repeat 0 16px / 100% 1.5px,
+                linear-gradient(to right, transparent 40%, var(--accent)) no-repeat 0 22px / 100% 1px;
+        }
+
+        .hero-tagline {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-desc {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ===== DECORATIVE SEPARATOR ===== */
+        .section-sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 0.5rem auto;
+            max-width: 1100px;
+            padding: 0 24px;
+            opacity: 0.3;
+        }
+
+        .section-sep .trail-left {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to left, var(--accent), transparent);
+        }
+
+        .section-sep .trail-right {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+        }
+
+        .section-sep .rocket-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
         }
 
         /* ===== FOOTER ===== */
@@ -190,8 +282,20 @@
             background-color: var(--dark);
             border-top: 1px solid var(--border);
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 0;
             margin-top: 2rem;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--accent), transparent);
         }
 
         footer p {
@@ -204,11 +308,20 @@
             font-weight: 500;
         }
 
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1rem;
+            opacity: 0.4;
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
+            .header-logo svg { max-width: 280px; }
             section { padding: 1.75rem; margin: 1rem auto; }
             nav ul li a { padding: 0.75rem 1rem; font-size: 0.8rem; }
+            .hero-tagline { font-size: 1.5rem; }
+            .hero-banner { padding: 2.5rem 1.5rem; }
         }
     </style>
 </head>
@@ -216,10 +329,45 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo-mark">&#9650;</div>
-                <div>
-                    <h1>WACO <span>AERO</span></h1>
-                    <p class="tagline">High School Aerospace Research & Development Club</p>
+                <div class="header-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="380">
+                        <defs>
+                            <linearGradient id="trailCL" x1="1" y1="0" x2="0" y2="0">
+                                <stop offset="0%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+                            </linearGradient>
+                            <linearGradient id="trailCR" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stop-color="#f97316"/>
+                                <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+                            </linearGradient>
+                            <filter id="glowC">
+                                <feGaussianBlur stdDeviation="4" result="b"/>
+                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Left contrails -->
+                        <path d="M238 42 Q180 25 100 14 Q60 8 30 10" fill="none" stroke="url(#trailCL)" stroke-width="3" filter="url(#glowC)"/>
+                        <path d="M236 50 Q185 38 110 30 Q70 26 40 28" fill="none" stroke="url(#trailCL)" stroke-width="2" opacity="0.5"/>
+                        <path d="M235 58 Q190 50 125 44 Q85 40 55 42" fill="none" stroke="url(#trailCL)" stroke-width="1.2" opacity="0.3"/>
+                        <!-- Right contrails -->
+                        <path d="M242 42 Q300 25 380 14 Q420 8 450 10" fill="none" stroke="url(#trailCR)" stroke-width="3" filter="url(#glowC)"/>
+                        <path d="M244 50 Q295 38 370 30 Q410 26 440 28" fill="none" stroke="url(#trailCR)" stroke-width="2" opacity="0.5"/>
+                        <path d="M245 58 Q290 50 355 44 Q395 40 425 42" fill="none" stroke="url(#trailCR)" stroke-width="1.2" opacity="0.3"/>
+                        <!-- Center rocket -->
+                        <path d="M240 12 L248 50 L244 50 L244 65 L236 65 L236 50 L232 50 Z" fill="#f97316" filter="url(#glowC)"/>
+                        <path d="M236 58 L229 68 L236 64 Z" fill="#ea580c"/>
+                        <path d="M244 58 L251 68 L244 64 Z" fill="#ea580c"/>
+                        <path d="M238 65 L240 74 L242 65" fill="#fb923c" opacity="0.6"/>
+                        <!-- WACO -->
+                        <text x="240" y="120" text-anchor="middle" font-size="52" font-weight="700" fill="#e8eaf0" letter-spacing="14" font-family="Oswald, sans-serif">WACO</text>
+                        <!-- Double rule -->
+                        <line x1="115" y1="128" x2="365" y2="128" stroke="#f97316" stroke-width="2.5"/>
+                        <line x1="135" y1="135" x2="345" y2="135" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
+                        <!-- AERO -->
+                        <text x="240" y="160" text-anchor="middle" font-size="22" font-weight="500" fill="#f97316" letter-spacing="22" font-family="Oswald, sans-serif">AERO</text>
+                        <!-- Subtitle -->
+                        <text x="240" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="5" font-family="Inter, sans-serif">AEROSPACE RESEARCH &amp; DEVELOPMENT</text>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -227,25 +375,62 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" >Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="resources.html">Resources</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
             <li><a href="team.html">Team</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <section id="resources">
-            <h2>Resources & Guides</h2>
-            <p>Coming soon...</p>
+
+        <!-- Decorative separator -->
+        <div class="section-sep">
+            <span class="trail-left"></span>
+            <span class="rocket-dot"></span>
+            <span class="trail-right"></span>
+        </div>
+
+        <section>
+            <h2>Resources</h2>
+            <div style="text-align: center; padding: 3rem 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="60" style="opacity: 0.15; margin-bottom: 1rem;">
+                    <path d="M40 5 L48 35 L44 35 L44 55 L36 55 L36 35 L32 35 Z" fill="#f97316"/>
+                    <path d="M36 48 L29 58 L36 54 Z" fill="#ea580c"/>
+                    <path d="M44 48 L51 58 L44 54 Z" fill="#ea580c"/>
+                    <path d="M38 55 L40 68 L42 55" fill="#fb923c" opacity="0.6"/>
+                </svg>
+                <p style="color: #94a3b8; font-size: 1.1rem; font-weight: 500;">Resources coming soon.</p>
+                <p style="color: #64748b; font-size: 0.9rem;">We'll be compiling learning materials, tool guides, software links, and reference documents for our members and anyone interested in aerospace.</p>
+            </div>
         </section>
     </div>
 
     <footer>
         <div class="container">
+            <!-- Mini footer logo -->
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="80">
+                    <defs>
+                        <linearGradient id="ftL" x1="1" y1="0" x2="0" y2="0">
+                            <stop offset="0%" stop-color="#f97316"/>
+                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="ftR" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#f97316"/>
+                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="M58 8 Q45 4 25 2 Q10 1 2 2" fill="none" stroke="url(#ftL)" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M62 8 Q75 4 95 2 Q110 1 118 2" fill="none" stroke="url(#ftR)" stroke-width="1.5" opacity="0.6"/>
+                    <path d="M60 2 L63 12 L62 12 L62 18 L58 18 L58 12 L57 12 Z" fill="#f97316" opacity="0.7"/>
+                    <text x="60" y="36" text-anchor="middle" font-size="10" font-weight="700" fill="#e8eaf0" letter-spacing="3" font-family="Oswald, sans-serif">WACO</text>
+                    <text x="60" y="46" text-anchor="middle" font-size="5" font-weight="500" fill="#f97316" letter-spacing="5" font-family="Oswald, sans-serif">AERO</text>
+                </svg>
+            </div>
             <p>&copy; 2025 Waco Aero &mdash; High School Aerospace Research Club</p>
-            <p>Inspiring the next generation of aerospace engineers</p>
+            <p>Design. Fabricate. Fly.</p>
         </div>
     </footer>
 </body>
