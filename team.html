@@ -34,7 +34,6 @@
             background-color: var(--deep);
         }
 
-        /* ===== HEADER ===== */
         header {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
@@ -85,7 +84,6 @@
             height: auto;
         }
 
-        /* ===== NAV ===== */
         nav {
             background-color: var(--dark);
             border-bottom: 2px solid var(--accent);
@@ -120,7 +118,6 @@
             background: var(--accent-glow);
         }
 
-        /* ===== SECTIONS ===== */
         section {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -143,7 +140,6 @@
             gap: 0.75rem;
         }
 
-        /* Contrail accent after h2 */
         h2::after {
             content: '';
             flex: 1;
@@ -151,7 +147,6 @@
             background: linear-gradient(to right, var(--accent) 0%, transparent 100%);
         }
 
-        /* Small rocket icon before h2 */
         h2::before {
             content: '';
             display: inline-block;
@@ -190,63 +185,6 @@
             box-shadow: 0 6px 25px rgba(249, 115, 22, 0.35);
         }
 
-        /* ===== HERO BANNER ===== */
-        .hero-banner {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3.5rem 2.5rem;
-            margin: 2rem auto;
-            max-width: 1100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-        }
-
-        /* Decorative contrail swooshes in hero */
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            width: 120px;
-            height: 40px;
-            opacity: 0.06;
-            background: 
-                linear-gradient(to right, transparent, var(--accent)) no-repeat 0 8px / 100% 2px,
-                linear-gradient(to right, transparent 20%, var(--accent)) no-repeat 0 16px / 100% 1.5px,
-                linear-gradient(to right, transparent 40%, var(--accent)) no-repeat 0 22px / 100% 1px;
-        }
-
-        .hero-tagline {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .hero-desc {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* ===== DECORATIVE SEPARATOR ===== */
         .section-sep {
             display: flex;
             align-items: center;
@@ -277,7 +215,6 @@
             clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
         }
 
-        /* ===== FOOTER ===== */
         footer {
             background-color: var(--dark);
             border-top: 1px solid var(--border);
@@ -315,13 +252,57 @@
             opacity: 0.4;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* Team card styles */
+        .team-card {
+            text-align: center;
+            width: 220px;
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #f97316;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-name {
+            font-family: Oswald, sans-serif;
+            font-size: 1.1rem;
+            color: #f8fafc;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+        }
+
+        .team-role {
+            color: #f97316;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.25rem;
+        }
+
+        .team-school {
+            color: var(--text-dim);
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            margin-top: 0.35rem;
+        }
+
         @media (max-width: 768px) {
             .header-logo svg { max-width: 280px; }
             section { padding: 1.75rem; margin: 1rem auto; }
             nav ul li a { padding: 0.75rem 1rem; font-size: 0.8rem; }
-            .hero-tagline { font-size: 1.5rem; }
-            .hero-banner { padding: 2.5rem 1.5rem; }
         }
     </style>
 </head>
@@ -345,27 +326,20 @@
                                 <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                             </filter>
                         </defs>
-                        <!-- Left contrails -->
                         <path d="M238 42 Q180 25 100 14 Q60 8 30 10" fill="none" stroke="url(#trailCL)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M236 50 Q185 38 110 30 Q70 26 40 28" fill="none" stroke="url(#trailCL)" stroke-width="2" opacity="0.5"/>
                         <path d="M235 58 Q190 50 125 44 Q85 40 55 42" fill="none" stroke="url(#trailCL)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Right contrails -->
                         <path d="M242 42 Q300 25 380 14 Q420 8 450 10" fill="none" stroke="url(#trailCR)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M244 50 Q295 38 370 30 Q410 26 440 28" fill="none" stroke="url(#trailCR)" stroke-width="2" opacity="0.5"/>
                         <path d="M245 58 Q290 50 355 44 Q395 40 425 42" fill="none" stroke="url(#trailCR)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Center rocket -->
                         <path d="M240 12 L248 50 L244 50 L244 65 L236 65 L236 50 L232 50 Z" fill="#f97316" filter="url(#glowC)"/>
                         <path d="M236 58 L229 68 L236 64 Z" fill="#ea580c"/>
                         <path d="M244 58 L251 68 L244 64 Z" fill="#ea580c"/>
                         <path d="M238 65 L240 74 L242 65" fill="#fb923c" opacity="0.6"/>
-                        <!-- WACO -->
                         <text x="240" y="120" text-anchor="middle" font-size="52" font-weight="700" fill="#e8eaf0" letter-spacing="14" font-family="Oswald, sans-serif">WACO</text>
-                        <!-- Double rule -->
                         <line x1="115" y1="128" x2="365" y2="128" stroke="#f97316" stroke-width="2.5"/>
                         <line x1="135" y1="135" x2="345" y2="135" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
-                        <!-- AERO -->
                         <text x="240" y="160" text-anchor="middle" font-size="22" font-weight="500" fill="#f97316" letter-spacing="22" font-family="Oswald, sans-serif">AERO</text>
-                        <!-- Subtitle -->
                         <text x="240" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="5" font-family="Inter, sans-serif">AEROSPACE RESEARCH &amp; DEVELOPMENT</text>
                     </svg>
                 </div>
@@ -375,7 +349,7 @@
 
     <nav>
         <ul>
-            <li><a href="index.html" >Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="resources.html">Resources</a></li>
@@ -385,7 +359,6 @@
 
     <div class="container">
 
-        <!-- Decorative separator -->
         <div class="section-sep">
             <span class="trail-left"></span>
             <span class="rocket-dot"></span>
@@ -396,25 +369,26 @@
             <h2>Our Team</h2>
             <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 1.5rem;">
                 <!-- Moses -->
-                <div style="text-align: center; width: 220px;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #f97316; overflow: hidden; margin: 0 auto 1rem; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);">
-                        <img src="moses.jpg" alt="Moses Barley" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1e293b;color:#f97316;font-family:Oswald,sans-serif;font-size:2rem;font-weight:700;&quot;>MB</div>';">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="moses.jpg" alt="Moses Barley" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1e293b;color:#f97316;font-family:Oswald,sans-serif;font-size:2rem;font-weight:700;&quot;>MB</div>';">
                     </div>
-                    <h3 style="font-family: Oswald, sans-serif; font-size: 1.1rem; color: #f8fafc; font-weight: 600; letter-spacing: 0.03em;">Moses Barley</h3>
-                    <p style="color: #f97316; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem;">Co-Founder &amp; Lead</p>
+                    <h3 class="team-name">Moses Barley</h3>
+                    <p class="team-role">Co-Founder &amp; Lead</p>
+                    <p class="team-school">Valor &middot; Class of 2029</p>
                 </div>
                 <!-- Shepherd -->
-                <div style="text-align: center; width: 220px;">
-                    <div style="width: 120px; height: 120px; border-radius: 50%; border: 3px solid #f97316; overflow: hidden; margin: 0 auto 1rem; box-shadow: 0 4px 20px rgba(249, 115, 22, 0.2);">
-                        <img src="shephered.jpg" alt="Shepherd Barley" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1e293b;color:#f97316;font-family:Oswald,sans-serif;font-size:2rem;font-weight:700;&quot;>SB</div>';">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <img src="shepherd.jpg" alt="Shepherd Barley" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=&quot;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1e293b;color:#f97316;font-family:Oswald,sans-serif;font-size:2rem;font-weight:700;&quot;>SB</div>';">
                     </div>
-                    <h3 style="font-family: Oswald, sans-serif; font-size: 1.1rem; color: #f8fafc; font-weight: 600; letter-spacing: 0.03em;">Shepherd Barley</h3>
-                    <p style="color: #f97316; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.25rem;">Co-Founder</p>
+                    <h3 class="team-name">Shepherd Barley</h3>
+                    <p class="team-role">Co-Founder</p>
+                    <p class="team-school">Vanguard &middot; Class of 2028</p>
                 </div>
             </div>
         </section>
 
-        <!-- Join section -->
         <section>
             <h2>Join Waco Aero</h2>
             <p>We're always looking for new members who are passionate about aerospace engineering, rocketry, and aviation. No prior experience required — just curiosity and a willingness to learn.</p>
@@ -424,7 +398,6 @@
 
     <footer>
         <div class="container">
-            <!-- Mini footer logo -->
             <div class="footer-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="80">
                     <defs>
