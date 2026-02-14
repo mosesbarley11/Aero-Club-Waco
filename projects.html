@@ -34,11 +34,17 @@
             background-color: var(--deep);
         }
 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
         /* ===== HEADER ===== */
         header {
             background: var(--dark);
             border-bottom: 1px solid var(--border);
-            padding: 2rem 0 2.5rem;
+            padding: 1.75rem 0 2rem;
             position: relative;
             overflow: hidden;
         }
@@ -65,317 +71,580 @@
             pointer-events: none;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-        }
-
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 1.25rem;
+            position: relative;
+            z-index: 1;
         }
 
         .header-logo svg {
             display: block;
-            max-width: 380px;
-            width: 100%;
-            height: auto;
+        }
+
+        .header-text h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .header-text h1 span {
+            color: var(--accent);
+        }
+
+        .header-text .tagline {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
         }
 
         /* ===== NAV ===== */
         nav {
-            background-color: var(--dark);
-            border-bottom: 2px solid var(--accent);
+            background: var(--navy);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
         nav ul {
-            display: flex;
-            justify-content: center;
             list-style: none;
+            display: flex;
             max-width: 1100px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         nav ul li a {
             display: block;
-            padding: 1rem 1.75rem;
-            color: var(--text-dim);
+            padding: 0.9rem 1.25rem;
             text-decoration: none;
+            color: var(--text-dim);
             font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            transition: color 0.3s, background 0.3s;
-        }
-
-        nav ul li a:hover,
-        nav ul li a.active {
-            color: var(--accent);
-            background: var(--accent-glow);
-        }
-
-        /* ===== SECTIONS ===== */
-        section {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin: 2rem auto;
-            max-width: 1100px;
-        }
-
-        h2 {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.04em;
-            color: var(--white);
-            margin-bottom: 1.25rem;
             text-transform: uppercase;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.2s;
+        }
+
+        nav ul li a:hover { color: var(--white); }
+        nav ul li a:hover::after { transform: scaleX(1); }
+        nav ul li a.active { color: var(--accent); }
+        nav ul li a.active::after { transform: scaleX(1); }
+
+        /* ===== SECTION SEPARATOR ===== */
+        .contrail-sep {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            justify-content: center;
+            padding: 1.5rem 0 0.5rem;
+            gap: 0;
+            opacity: 0.4;
         }
 
-        /* Contrail accent after h2 */
-        h2::after {
-            content: '';
-            flex: 1;
+        .contrail-sep .line {
             height: 1px;
-            background: linear-gradient(to right, var(--accent) 0%, transparent 100%);
+            width: 120px;
+            background: linear-gradient(to center, transparent, var(--accent));
         }
 
-        /* Small rocket icon before h2 */
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 16px;
-            height: 16px;
+        .contrail-sep .line.right {
+            background: linear-gradient(to left, transparent, var(--accent));
+        }
+
+        .contrail-sep .dot {
+            width: 6px;
+            height: 6px;
             background: var(--accent);
-            clip-path: polygon(50% 0%, 65% 45%, 85% 55%, 65% 55%, 65% 85%, 55% 100%, 50% 85%, 45% 100%, 35% 85%, 35% 55%, 15% 55%, 35% 45%);
-            flex-shrink: 0;
+            clip-path: polygon(50% 0%, 100% 100%, 50% 80%, 0% 100%);
         }
 
-        p {
-            color: var(--text-dim);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        p:last-child { margin-bottom: 0; }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.01em;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.35);
-        }
-
-        /* ===== HERO BANNER ===== */
-        .hero-banner {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3.5rem 2.5rem;
-            margin: 2rem auto;
-            max-width: 1100px;
-            text-align: center;
+        /* ===== PAGE HERO BANNER ===== */
+        .page-banner {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--dark) 60%);
+            border-bottom: 1px solid var(--border);
+            padding: 3rem 0 2.5rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero-banner::before {
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(
+                    -55deg,
+                    transparent,
+                    transparent 60px,
+                    rgba(249,115,22,0.02) 60px,
+                    rgba(249,115,22,0.02) 61px
+                );
+        }
+
+        .page-banner-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .banner-eyebrow {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .banner-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .page-banner h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-banner p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            padding: 2.5rem 0 4rem;
+        }
+
+        /* ===== PROJECT CARD ===== */
+        .project-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .project-block-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--surface) 100%);
+            padding: 2rem 2.25rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-block-header::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
+            background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
         }
 
-        /* Decorative contrail swooshes in hero */
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            width: 120px;
-            height: 40px;
-            opacity: 0.06;
-            background: 
-                linear-gradient(to right, transparent, var(--accent)) no-repeat 0 8px / 100% 2px,
-                linear-gradient(to right, transparent 20%, var(--accent)) no-repeat 0 16px / 100% 1.5px,
-                linear-gradient(to right, transparent 40%, var(--accent)) no-repeat 0 22px / 100% 1px;
-        }
-
-        .hero-tagline {
+        .project-number {
             font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
+            font-size: 4rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            line-height: 1;
             color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
+            opacity: 0.25;
+            flex-shrink: 0;
+            margin-top: -0.25rem;
         }
 
-        .hero-desc {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.7;
+        .project-header-text h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: var(--white);
+            margin-bottom: 0.3rem;
         }
 
-        /* ===== DECORATIVE SEPARATOR ===== */
-        .section-sep {
+        .project-header-text .project-meta {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 0.5rem auto;
-            max-width: 1100px;
-            padding: 0 24px;
-            opacity: 0.3;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.85rem;
         }
 
-        .section-sep .trail-left {
+        .project-tag {
+            background: rgba(249,115,22,0.15);
+            color: var(--accent-light);
+            border: 1px solid rgba(249,115,22,0.3);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.65rem;
+            border-radius: 4px;
+        }
+
+        .project-tag.blue {
+            background: rgba(56,189,248,0.12);
+            color: var(--blue);
+            border-color: rgba(56,189,248,0.25);
+        }
+
+        .project-tag.green {
+            background: rgba(34,197,94,0.12);
+            color: #4ade80;
+            border-color: rgba(34,197,94,0.25);
+        }
+
+        .project-header-text p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* ===== PHOTO GALLERY ===== */
+        .photo-gallery {
+            padding: 1.75rem 2.25rem 2.25rem;
+        }
+
+        .gallery-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .gallery-label::after {
+            content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to left, var(--accent), transparent);
+            background: var(--border);
         }
 
-        .section-sep .trail-right {
+        .photo-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .photo-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .photo-grid-hero {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 1rem;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background: var(--navy);
+            border: 1px solid var(--border);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .photo-item .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(10,14,26,0.88));
+            padding: 2rem 1rem 0.75rem;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            letter-spacing: 0.02em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover .photo-caption {
+            transform: translateY(0);
+        }
+
+        .photo-item.tall {
+            grid-row: span 2;
+        }
+
+        .photo-item.featured {
+            height: 320px;
+        }
+
+        .photo-item.standard {
+            height: 220px;
+        }
+
+        .photo-item.wide {
+            height: 260px;
+            grid-column: span 2;
+        }
+
+        /* ===== SPECS TABLE ===== */
+        .project-specs {
+            padding: 0 2.25rem 2rem;
+        }
+
+        .specs-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .specs-title::after {
+            content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(to right, var(--accent), transparent);
+            background: var(--border);
         }
 
-        .section-sep .rocket-dot {
-            width: 6px;
-            height: 6px;
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .spec-item {
+            background: var(--surface-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1rem;
+        }
+
+        .spec-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-dim);
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-value {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .spec-value.accent { color: var(--accent); }
+        .spec-value.blue { color: var(--blue); }
+        .spec-value.green { color: #4ade80; }
+
+        /* ===== MILESTONE TIMELINE ===== */
+        .milestones {
+            padding: 0 2.25rem 2rem;
+        }
+
+        .milestone-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .milestone-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .milestone-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 22px;
+            bottom: -8px;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .milestone-dot {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
             background: var(--accent);
-            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            border: 3px solid var(--deep);
+            flex-shrink: 0;
+            margin-top: 2px;
+            z-index: 1;
+        }
+
+        .milestone-dot.done { background: #4ade80; }
+        .milestone-dot.blue { background: var(--blue); }
+
+        .milestone-content {
+            padding-bottom: 1.25rem;
+        }
+
+        .milestone-content strong {
+            display: block;
+            color: var(--white);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .milestone-content span {
+            font-size: 0.82rem;
+            color: var(--text-dim);
         }
 
         /* ===== FOOTER ===== */
         footer {
-            background-color: var(--dark);
+            background: var(--dark);
             border-top: 1px solid var(--border);
+            padding: 2rem 0;
             text-align: center;
-            padding: 2.5rem 0;
-            margin-top: 2rem;
             position: relative;
         }
 
         footer::before {
             content: '';
             position: absolute;
-            top: -1px;
+            top: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 200px;
             height: 1px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-        }
-
-        footer p {
-            color: var(--text-dim);
-            font-size: 0.85rem;
-        }
-
-        footer p:first-child {
-            color: var(--text);
-            font-weight: 500;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
         }
 
         .footer-logo {
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
             opacity: 0.4;
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+        }
+
+        footer p:first-of-type {
+            color: var(--text);
+            font-weight: 500;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-logo svg { max-width: 280px; }
-            section { padding: 1.75rem; margin: 1rem auto; }
-            nav ul li a { padding: 0.75rem 1rem; font-size: 0.8rem; }
-            .hero-tagline { font-size: 1.5rem; }
-            .hero-banner { padding: 2.5rem 1.5rem; }
+            .page-banner h2 { font-size: 2rem; }
+            .project-block-header { flex-direction: column; gap: 0.5rem; }
+            .project-number { font-size: 2.5rem; }
+            .photo-gallery, .project-specs, .milestones { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .project-block-header { padding: 1.5rem 1.25rem; }
+            .photo-grid-2, .photo-grid-hero { grid-template-columns: 1fr; }
+            .photo-grid-3 { grid-template-columns: 1fr 1fr; }
+            .photo-item.tall { grid-row: span 1; }
+            .photo-item.wide { grid-column: span 1; }
+            .photo-item.featured, .photo-item.standard, .photo-item.wide { height: 220px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="header-logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="380">
+                    <!-- Contrail Wings SVG Logo -->
+                    <svg width="72" height="52" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Left contrail arc -->
+                        <path d="M80 55 C65 45, 40 38, 10 42" stroke="#f97316" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+                        <path d="M80 55 C60 50, 35 48, 5 55" stroke="#f97316" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.45"/>
+                        <!-- Right contrail arc -->
+                        <path d="M80 55 C95 45, 120 38, 150 42" stroke="#f97316" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+                        <path d="M80 55 C100 50, 125 48, 155 55" stroke="#f97316" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.45"/>
+                        <!-- Rocket body -->
+                        <ellipse cx="80" cy="52" rx="7" ry="14" fill="#f97316"/>
+                        <!-- Rocket nose -->
+                        <path d="M80 38 L75 52 L85 52 Z" fill="#fb923c"/>
+                        <!-- Rocket fins -->
+                        <path d="M73 60 L68 70 L77 63 Z" fill="#ea580c"/>
+                        <path d="M87 60 L92 70 L83 63 Z" fill="#ea580c"/>
+                        <!-- Exhaust glow -->
+                        <ellipse cx="80" cy="68" rx="4" ry="6" fill="url(#exhaustGrad)" opacity="0.8"/>
                         <defs>
-                            <linearGradient id="trailCL" x1="1" y1="0" x2="0" y2="0">
-                                <stop offset="0%" stop-color="#f97316"/>
-                                <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                            </linearGradient>
-                            <linearGradient id="trailCR" x1="0" y1="0" x2="1" y2="0">
-                                <stop offset="0%" stop-color="#f97316"/>
-                                <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                            </linearGradient>
-                            <filter id="glowC">
-                                <feGaussianBlur stdDeviation="4" result="b"/>
-                                <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-                            </filter>
+                            <radialGradient id="exhaustGrad" cx="50%" cy="0%" r="100%">
+                                <stop offset="0%" stop-color="#fb923c"/>
+                                <stop offset="100%" stop-color="transparent"/>
+                            </radialGradient>
                         </defs>
-                        <!-- Left contrails -->
-                        <path d="M238 42 Q180 25 100 14 Q60 8 30 10" fill="none" stroke="url(#trailCL)" stroke-width="3" filter="url(#glowC)"/>
-                        <path d="M236 50 Q185 38 110 30 Q70 26 40 28" fill="none" stroke="url(#trailCL)" stroke-width="2" opacity="0.5"/>
-                        <path d="M235 58 Q190 50 125 44 Q85 40 55 42" fill="none" stroke="url(#trailCL)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Right contrails -->
-                        <path d="M242 42 Q300 25 380 14 Q420 8 450 10" fill="none" stroke="url(#trailCR)" stroke-width="3" filter="url(#glowC)"/>
-                        <path d="M244 50 Q295 38 370 30 Q410 26 440 28" fill="none" stroke="url(#trailCR)" stroke-width="2" opacity="0.5"/>
-                        <path d="M245 58 Q290 50 355 44 Q395 40 425 42" fill="none" stroke="url(#trailCR)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Center rocket -->
-                        <path d="M240 12 L248 50 L244 50 L244 65 L236 65 L236 50 L232 50 Z" fill="#f97316" filter="url(#glowC)"/>
-                        <path d="M236 58 L229 68 L236 64 Z" fill="#ea580c"/>
-                        <path d="M244 58 L251 68 L244 64 Z" fill="#ea580c"/>
-                        <path d="M238 65 L240 74 L242 65" fill="#fb923c" opacity="0.6"/>
-                        <!-- WACO -->
-                        <text x="240" y="120" text-anchor="middle" font-size="52" font-weight="700" fill="#e8eaf0" letter-spacing="14" font-family="Oswald, sans-serif">WACO</text>
-                        <!-- Double rule -->
-                        <line x1="115" y1="128" x2="365" y2="128" stroke="#f97316" stroke-width="2.5"/>
-                        <line x1="135" y1="135" x2="345" y2="135" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
-                        <!-- AERO -->
-                        <text x="240" y="160" text-anchor="middle" font-size="22" font-weight="500" fill="#f97316" letter-spacing="22" font-family="Oswald, sans-serif">AERO</text>
-                        <!-- Subtitle -->
-                        <text x="240" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="5" font-family="Inter, sans-serif">AEROSPACE RESEARCH &amp; DEVELOPMENT</text>
                     </svg>
+                </div>
+                <div class="header-text">
+                    <h1>WACO <span>AERO</span></h1>
+                    <p class="tagline">High School Aerospace Research &amp; Development Club</p>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- ===== NAV ===== -->
     <nav>
         <ul>
-            <li><a href="index.html" >Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html" class="active">Projects</a></li>
             <li><a href="resources.html">Resources</a></li>
@@ -383,85 +652,164 @@
         </ul>
     </nav>
 
-    <div class="container">
-
-        <!-- Decorative separator -->
-        <div class="section-sep">
-            <span class="trail-left"></span>
-            <span class="rocket-dot"></span>
-            <span class="trail-right"></span>
+    <!-- ===== PAGE BANNER ===== -->
+    <div class="page-banner">
+        <div class="container">
+            <div class="page-banner-inner">
+                <div class="banner-eyebrow">Waco Aero Club</div>
+                <h2>Project Gallery</h2>
+                <p>Real aircraft. Real builds. Real flights. Documenting every project from initial design through construction and first flight.</p>
+            </div>
         </div>
-
-        <section>
-            <h2>Projects</h2>
-            <div style="text-align: center; padding: 3rem 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" width="100" style="opacity: 0.12; margin-bottom: 1rem;">
-                    <defs>
-                        <linearGradient id="pL" x1="1" y1="0" x2="0" y2="0">
-                            <stop offset="0%" stop-color="#f97316"/>
-                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="pR" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#f97316"/>
-                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M58 12 Q40 6 15 3 Q5 2 0 3" fill="none" stroke="url(#pL)" stroke-width="2"/>
-                    <path d="M62 12 Q80 6 105 3 Q115 2 120 3" fill="none" stroke="url(#pR)" stroke-width="2"/>
-                    <path d="M60 2 L64 14 L62 14 L62 22 L58 22 L58 14 L56 14 Z" fill="#f97316"/>
-                </svg>
-        <!-- Project: Summer RC Airplanes -->
-                        <div style="margin-bottom: 3rem;">
-            <h3 style="color: #f97316; font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem;">Summer RC Airplane Adventures</h3>h3>
-                                    <p style="color: #94a3b8; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                                                        Over the summer, we assembled and flew the FlightTest FT Explorer, a versatile RC aircraft perfect for learning aerodynamics and flight dynamics. We also explored 3D printing technology by designing and flying custom 3D printed airplanes, combining digital fabrication with hands-on flight testing.
-                                    </p>
-                                    </p>p>
-
-                                        <!-- Photo Grid -->
-                                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                                                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
-                                                                                    <img src="plane1.jpg" alt="FT Explorer RC Plane" style="width: 100%; height: auto; display: block;">
-                                                            </div>
-                                                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
-                                                                                    <img src="plane2.jpg" alt="Launching the RC Plane" style="width: 100%; height: auto; display: block;">
-                                                            </div>
-                                                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
-                                                                                    <img src="plane3.jpg" alt="3D Printed Airplane" style="width: 100%; height: auto; display: block;">
-                                                            </div>
-                                                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid var(--border);">
-                                                                                    <img src="plane4.jpg" alt="RC Plane Assembly" style="width: 100%; height: auto; display: block;">
-                                                            </div>
-                                        </div>
-                        </div>
-        </section>
     </div>
 
+    <!-- ===== MAIN ===== -->
+    <main>
+        <div class="container">
+
+            <!-- =============================== -->
+            <!-- PROJECT 01: FT EXPLORER + 3D    -->
+            <!-- =============================== -->
+            <div class="project-block">
+
+                <!-- Project Header -->
+                <div class="project-block-header">
+                    <div class="project-number">01</div>
+                    <div class="project-header-text">
+                        <h3>Summer Fixed-Wing Builds &amp; First Flights</h3>
+                        <div class="project-meta">
+                            <span class="project-tag">Summer 2025</span>
+                            <span class="project-tag blue">Fixed-Wing</span>
+                            <span class="project-tag green">Completed</span>
+                        </div>
+                        <p>
+                            Our first real club flights — assembling and flying the FlightTest FT Explorer foam board trainer,
+                            alongside a set of 3D-printed aircraft. These sessions gave us hands-on experience with 
+                            aircraft assembly, CG balancing, control surface setup, and hand-launch techniques before 
+                            ever turning on the transmitter.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Spec Tiles -->
+                <div class="project-specs">
+                    <div class="specs-title">Project Specs</div>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <div class="spec-label">Aircraft 1</div>
+                            <div class="spec-value accent">FT Explorer</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Aircraft 2</div>
+                            <div class="spec-value blue">3D-Printed Planes</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Construction</div>
+                            <div class="spec-value">Foam Board + FDM 3D Print</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Launch Method</div>
+                            <div class="spec-value">Hand Launch</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Flight Result</div>
+                            <div class="spec-value green">Successful ✓</div>
+                        </div>
+                        <div class="spec-item">
+                            <div class="spec-label">Location</div>
+                            <div class="spec-value">Waco, TX</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Build Milestones -->
+                <div class="milestones">
+                    <div class="specs-title">Build &amp; Flight Milestones</div>
+                    <div class="milestone-list">
+                        <div class="milestone-item">
+                            <div class="milestone-dot done"></div>
+                            <div class="milestone-content">
+                                <strong>Kit Assembly — FT Explorer</strong>
+                                <span>Cut, folded, and glued foam board airframe. Installed motor, ESC, and servos.</span>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <div class="milestone-dot done"></div>
+                            <div class="milestone-content">
+                                <strong>3D Print Runs</strong>
+                                <span>Printed aircraft components across club members' printers. Post-processed and assembled.</span>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <div class="milestone-dot done"></div>
+                            <div class="milestone-content">
+                                <strong>CG Balance &amp; Control Check</strong>
+                                <span>Verified center of gravity, threw maiden glide tests, adjusted throws on ailerons and elevator.</span>
+                            </div>
+                        </div>
+                        <div class="milestone-item">
+                            <div class="milestone-dot done"></div>
+                            <div class="milestone-content">
+                                <strong>First Flights — All Aircraft</strong>
+                                <span>Successfully hand-launched and flew both the FT Explorer and 3D-printed designs with RC control.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery -->
+                <div class="photo-gallery">
+                    <div class="gallery-label">Flight Photos — Summer 2025</div>
+
+                    <!-- Hero layout: big on left, two stacked on right -->
+                    <div class="photo-grid-hero" style="margin-bottom: 1rem;">
+                        <div class="photo-item featured" style="height: 460px;">
+                            <img src="images/flying-wing-garage.png" alt="Large flying wing aircraft in the garage, ready for flight prep" loading="lazy">
+                            <div class="photo-caption">Flying wing airframe during preflight prep in the workshop</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="photo-item standard" style="height: 220px; flex: 1;">
+                                <img src="images/ft-explorer-pose.png" alt="Holding the FT Explorer glider at the field, ready to fly" loading="lazy">
+                                <div class="photo-caption">FT Explorer — pre-launch pose at the field</div>
+                            </div>
+                            <div class="photo-item standard" style="height: 220px; flex: 1;">
+                                <img src="images/rc-plane-mentor.png" alt="Club mentor with 3D printed RC aircraft, ready to launch" loading="lazy">
+                                <div class="photo-caption">3D-printed RC aircraft with club mentor before launch</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom: full-width launch shot -->
+                    <div class="photo-item" style="height: 300px; width: 100%;">
+                        <img src="images/ft-explorer-launch.png" alt="Hand-launching the FT Explorer with RC controller operator standing by" loading="lazy">
+                        <div class="photo-caption">Hand-launch sequence — pilot throws while co-pilot holds the transmitter</div>
+                    </div>
+
+                </div>
+                <!-- end .photo-gallery -->
+
+            </div>
+            <!-- end .project-block -->
+
+        </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <!-- Mini footer logo -->
             <div class="footer-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="80">
-                    <defs>
-                        <linearGradient id="ftL" x1="1" y1="0" x2="0" y2="0">
-                            <stop offset="0%" stop-color="#f97316"/>
-                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                        </linearGradient>
-                        <linearGradient id="ftR" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#f97316"/>
-                            <stop offset="100%" stop-color="#f97316" stop-opacity="0"/>
-                        </linearGradient>
-                    </defs>
-                    <path d="M58 8 Q45 4 25 2 Q10 1 2 2" fill="none" stroke="url(#ftL)" stroke-width="1.5" opacity="0.6"/>
-                    <path d="M62 8 Q75 4 95 2 Q110 1 118 2" fill="none" stroke="url(#ftR)" stroke-width="1.5" opacity="0.6"/>
-                    <path d="M60 2 L63 12 L62 12 L62 18 L58 18 L58 12 L57 12 Z" fill="#f97316" opacity="0.7"/>
-                    <text x="60" y="36" text-anchor="middle" font-size="10" font-weight="700" fill="#e8eaf0" letter-spacing="3" font-family="Oswald, sans-serif">WACO</text>
-                    <text x="60" y="46" text-anchor="middle" font-size="5" font-weight="500" fill="#f97316" letter-spacing="5" font-family="Oswald, sans-serif">AERO</text>
+                <svg width="28" height="20" viewBox="0 0 160 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M80 55 C65 45, 40 38, 10 42" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    <path d="M80 55 C95 45, 120 38, 150 42" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    <ellipse cx="80" cy="52" rx="7" ry="14" fill="#f97316"/>
+                    <path d="M80 38 L75 52 L85 52 Z" fill="#fb923c"/>
                 </svg>
+                <span style="font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--text-dim);">WACO AERO</span>
             </div>
             <p>&copy; 2025 Waco Aero &mdash; High School Aerospace Research Club</p>
-            <p>Design. Fabricate. Fly.</p>
+            <p>Inspiring the next generation of aerospace engineers</p>
         </div>
     </footer>
+
 </body>
 </html>
