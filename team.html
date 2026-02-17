@@ -32,6 +32,7 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--deep);
+            overflow-x: hidden;
         }
 
         /* ===== HEADER ===== */
@@ -100,6 +101,7 @@
             list-style: none;
             max-width: 1100px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
@@ -112,6 +114,7 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             transition: color 0.3s, background 0.3s;
+            white-space: nowrap;
         }
 
         nav ul li a:hover,
@@ -166,21 +169,17 @@
             font-size: 0.95rem;
         }
 
-        p:last-child {
-            margin-bottom: 0;
-        }
+        p:last-child { margin-bottom: 0; }
 
         /* ===== TEAM MEMBERS ===== */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .team-member {
-            text-align: center;
-        }
+        .team-member { text-align: center; }
 
         .member-photo {
             width: 150px;
@@ -289,10 +288,18 @@
             opacity: 0.4;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE: TABLET ===== */
         @media (max-width: 768px) {
-            .header-logo svg {
-                max-width: 280px;
+            .header-logo svg { max-width: 260px; }
+
+            header { padding: 1.5rem 0 2rem; }
+
+            .container { padding: 0 16px; }
+
+            nav ul li a {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+                letter-spacing: 0.03em;
             }
 
             section {
@@ -300,19 +307,91 @@
                 margin: 1rem auto;
             }
 
-            nav ul li a {
-                padding: 0.75rem 1rem;
-                font-size: 0.8rem;
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
             }
+
+            .member-photo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .member-photo .initials { font-size: 1.8rem; }
+        }
+
+        /* ===== RESPONSIVE: MOBILE ===== */
+        @media (max-width: 480px) {
+            .header-logo svg { max-width: 200px; }
+
+            header { padding: 1.25rem 0 1.5rem; }
+
+            .container { padding: 0 12px; }
+
+            nav ul { justify-content: space-around; }
+
+            nav ul li {
+                flex: 1;
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 0.65rem 0.5rem;
+                font-size: 0.72rem;
+                letter-spacing: 0.02em;
+            }
+
+            section {
+                padding: 1.25rem;
+                margin: 0.75rem auto;
+                border-radius: 8px;
+            }
+
+            h2 { font-size: 1.2rem; }
 
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.25rem;
             }
+
+            .member-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .member-photo .initials { font-size: 1.5rem; }
+
+            .member-name { font-size: 1rem; }
+
+            .member-role { font-size: 0.75rem; }
+
+            .member-school { font-size: 0.78rem; }
+
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            p { font-size: 0.9rem; }
         }
 
-        @media (max-width: 480px) {
-            .team-grid {
-                grid-template-columns: 1fr;
+        /* ===== RESPONSIVE: TINY (320px) ===== */
+        @media (max-width: 360px) {
+            .header-logo svg { max-width: 170px; }
+
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.6rem 0.4rem;
+                letter-spacing: 0;
+            }
+
+            .team-grid { gap: 1rem; }
+
+            .member-photo {
+                width: 90px;
+                height: 90px;
             }
         }
     </style>
@@ -337,27 +416,20 @@
                                 <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                             </filter>
                         </defs>
-                        <!-- Left contrails -->
                         <path d="M238 42 Q180 25 100 14 Q60 8 30 10" fill="none" stroke="url(#trailCL)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M236 50 Q185 38 110 30 Q70 26 40 28" fill="none" stroke="url(#trailCL)" stroke-width="2" opacity="0.5"/>
                         <path d="M235 58 Q190 50 125 44 Q85 40 55 42" fill="none" stroke="url(#trailCL)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Right contrails -->
                         <path d="M242 42 Q300 25 380 14 Q420 8 450 10" fill="none" stroke="url(#trailCR)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M244 50 Q295 38 370 30 Q410 26 440 28" fill="none" stroke="url(#trailCR)" stroke-width="2" opacity="0.5"/>
                         <path d="M245 58 Q290 50 355 44 Q395 40 425 42" fill="none" stroke="url(#trailCR)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Center rocket -->
                         <path d="M240 12 L248 50 L244 50 L244 65 L236 65 L236 50 L232 50 Z" fill="#f97316" filter="url(#glowC)"/>
                         <path d="M236 58 L229 68 L236 64 Z" fill="#ea580c"/>
                         <path d="M244 58 L251 68 L244 64 Z" fill="#ea580c"/>
                         <path d="M238 65 L240 74 L242 65" fill="#fb923c" opacity="0.6"/>
-                        <!-- WACO -->
                         <text x="240" y="120" text-anchor="middle" font-size="52" font-weight="700" fill="#e8eaf0" letter-spacing="14" font-family="Oswald, sans-serif">WACO</text>
-                        <!-- Double rule -->
                         <line x1="115" y1="128" x2="365" y2="128" stroke="#f97316" stroke-width="2.5"/>
                         <line x1="135" y1="135" x2="345" y2="135" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
-                        <!-- AERO -->
                         <text x="240" y="160" text-anchor="middle" font-size="22" font-weight="500" fill="#f97316" letter-spacing="22" font-family="Oswald, sans-serif">AERO</text>
-                        <!-- Subtitle -->
                         <text x="240" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="5" font-family="Inter, sans-serif">AEROSPACE RESEARCH &amp; DEVELOPMENT</text>
                     </svg>
                 </div>
@@ -379,96 +451,88 @@
             <h2>Our Team</h2>
             <div class="team-grid">
 
-                <!-- ── FOUNDERS ── -->
                 <div class="team-member">
-                    <div class="member-photo">
-                        <img src="moses.jpg" alt="Moses Barley">
-                    </div>
+                    <div class="member-photo"><img src="moses.jpg" alt="Moses Barley"></div>
                     <div class="member-name">Moses Barley</div>
                     <div class="member-role">Co-Founder &amp; Lead</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <img src="shepherd.jpg" alt="Shepherd Barley">
-                    </div>
+                    <div class="member-photo"><img src="shepherd.jpg" alt="Shepherd Barley"></div>
                     <div class="member-name">Shepherd Barley</div>
                     <div class="member-role">Co-Founder</div>
                     <div class="member-school">Vanguard &middot; Class of 2028</div>
                 </div>
 
-                <!-- ── MEMBERS ── -->
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">RS</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">RS</span></div>
                     <div class="member-name">Roman Sykora</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Class of 2028</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">RA</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">RA</span></div>
                     <div class="member-name">River Ackley</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">AM</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">AM</span></div>
                     <div class="member-name">Aidan Murray</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">JK</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">JK</span></div>
                     <div class="member-name">Jack Karnes</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">HA</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">HA</span></div>
                     <div class="member-name">Hudson Anderson</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2028</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">CK</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">CK</span></div>
                     <div class="member-name">Caleb Kanawyer</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2028</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">CO</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">CO</span></div>
                     <div class="member-name">Campbell Oates</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Midway High &middot; Class of 2028</div>
                 </div>
 
                 <div class="team-member">
-                    <div class="member-photo">
-                        <span class="initials">EJ</span>
-                    </div>
+                    <div class="member-photo"><span class="initials">EJ</span></div>
                     <div class="member-name">Elliott Jensen</div>
                     <div class="member-role">Member</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo"><span class="initials">MJ</span></div>
+                    <div class="member-name">Miller Jobson</div>
+                    <div class="member-role">Member</div>
+                    <div class="member-school">Live Oak &middot; Class of 2028</div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-photo"><span class="initials">JS</span></div>
+                    <div class="member-name">James Scott</div>
+                    <div class="member-role">Member</div>
+                    <div class="member-school">Vanguard &middot; Class of 2028</div>
                 </div>
 
             </div>
@@ -489,7 +553,6 @@
 
     <footer>
         <div class="container">
-            <!-- Mini footer logo -->
             <div class="footer-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="80">
                     <defs>
