@@ -32,6 +32,7 @@
             line-height: 1.6;
             color: var(--text);
             background-color: var(--deep);
+            overflow-x: hidden;
         }
 
         /* ===== HEADER ===== */
@@ -100,6 +101,7 @@
             list-style: none;
             max-width: 1100px;
             margin: 0 auto;
+            flex-wrap: wrap;
         }
 
         nav ul li a {
@@ -112,6 +114,7 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             transition: color 0.3s, background 0.3s;
+            white-space: nowrap;
         }
 
         nav ul li a:hover,
@@ -176,11 +179,10 @@
             font-weight: 700;
             color: rgba(249, 115, 22, 0.2);
             line-height: 1;
+            flex-shrink: 0;
         }
 
-        .project-info {
-            flex: 1;
-        }
+        .project-info { flex: 1; }
 
         .project-info h2 {
             font-family: 'Oswald', sans-serif;
@@ -192,9 +194,7 @@
         }
 
         .project-info h2::before,
-        .project-info h2::after {
-            display: none;
-        }
+        .project-info h2::after { display: none; }
 
         .project-tags {
             display: flex;
@@ -259,10 +259,7 @@
             gap: 1.5rem;
         }
 
-        .spec-item {
-            display: flex;
-            flex-direction: column;
-        }
+        .spec-item { display: flex; flex-direction: column; }
 
         .spec-label {
             font-size: 0.7rem;
@@ -278,9 +275,7 @@
             font-weight: 600;
         }
 
-        .spec-value.success {
-            color: #22c55e;
-        }
+        .spec-value.success { color: #22c55e; }
 
         /* ===== FOOTER ===== */
         footer {
@@ -320,10 +315,18 @@
             opacity: 0.4;
         }
 
-        /* ===== RESPONSIVE ===== */
+        /* ===== RESPONSIVE: TABLET ===== */
         @media (max-width: 768px) {
-            .header-logo svg {
-                max-width: 280px;
+            .header-logo svg { max-width: 260px; }
+
+            header { padding: 1.5rem 0 2rem; }
+
+            .container { padding: 0 16px; }
+
+            nav ul li a {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+                letter-spacing: 0.03em;
             }
 
             .project, .page-header {
@@ -331,27 +334,77 @@
                 margin: 1rem auto;
             }
 
-            nav ul li a {
-                padding: 0.75rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .page-header h1 {
-                font-size: 2rem;
-            }
+            .page-header h1 { font-size: 2rem; }
 
             .project-header {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
             }
 
-            .project-number {
-                font-size: 3rem;
+            .project-number { font-size: 3rem; }
+
+            .project-info h2 { font-size: 1.5rem; }
+
+            .specs-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ===== RESPONSIVE: MOBILE ===== */
+        @media (max-width: 480px) {
+            .header-logo svg { max-width: 200px; }
+
+            header { padding: 1.25rem 0 1.5rem; }
+
+            .container { padding: 0 12px; }
+
+            nav ul { justify-content: space-around; }
+
+            nav ul li {
+                flex: 1;
+                text-align: center;
             }
 
-            .specs-grid {
-                grid-template-columns: 1fr;
+            nav ul li a {
+                padding: 0.65rem 0.5rem;
+                font-size: 0.72rem;
+                letter-spacing: 0.02em;
             }
+
+            .project, .page-header {
+                padding: 1.25rem;
+                margin: 0.75rem auto;
+                border-radius: 8px;
+            }
+
+            .page-header h1 { font-size: 1.6rem; }
+
+            .page-header-label { font-size: 0.7rem; }
+
+            .project-number { font-size: 2.5rem; }
+
+            .project-info h2 { font-size: 1.25rem; }
+
+            .project-desc { font-size: 0.9rem; }
+
+            .specs-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+            .spec-value { font-size: 0.9rem; }
+
+            .tag { font-size: 0.68rem; padding: 0.3rem 0.6rem; }
+        }
+
+        /* ===== RESPONSIVE: TINY (320px) ===== */
+        @media (max-width: 360px) {
+            .header-logo svg { max-width: 170px; }
+
+            nav ul li a {
+                font-size: 0.65rem;
+                padding: 0.6rem 0.4rem;
+                letter-spacing: 0;
+            }
+
+            .specs-grid { grid-template-columns: 1fr; }
+
+            .page-header h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -375,27 +428,20 @@
                                 <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
                             </filter>
                         </defs>
-                        <!-- Left contrails -->
                         <path d="M238 42 Q180 25 100 14 Q60 8 30 10" fill="none" stroke="url(#trailCL)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M236 50 Q185 38 110 30 Q70 26 40 28" fill="none" stroke="url(#trailCL)" stroke-width="2" opacity="0.5"/>
                         <path d="M235 58 Q190 50 125 44 Q85 40 55 42" fill="none" stroke="url(#trailCL)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Right contrails -->
                         <path d="M242 42 Q300 25 380 14 Q420 8 450 10" fill="none" stroke="url(#trailCR)" stroke-width="3" filter="url(#glowC)"/>
                         <path d="M244 50 Q295 38 370 30 Q410 26 440 28" fill="none" stroke="url(#trailCR)" stroke-width="2" opacity="0.5"/>
                         <path d="M245 58 Q290 50 355 44 Q395 40 425 42" fill="none" stroke="url(#trailCR)" stroke-width="1.2" opacity="0.3"/>
-                        <!-- Center rocket -->
                         <path d="M240 12 L248 50 L244 50 L244 65 L236 65 L236 50 L232 50 Z" fill="#f97316" filter="url(#glowC)"/>
                         <path d="M236 58 L229 68 L236 64 Z" fill="#ea580c"/>
                         <path d="M244 58 L251 68 L244 64 Z" fill="#ea580c"/>
                         <path d="M238 65 L240 74 L242 65" fill="#fb923c" opacity="0.6"/>
-                        <!-- WACO -->
                         <text x="240" y="120" text-anchor="middle" font-size="52" font-weight="700" fill="#e8eaf0" letter-spacing="14" font-family="Oswald, sans-serif">WACO</text>
-                        <!-- Double rule -->
                         <line x1="115" y1="128" x2="365" y2="128" stroke="#f97316" stroke-width="2.5"/>
                         <line x1="135" y1="135" x2="345" y2="135" stroke="#f97316" stroke-width="0.8" opacity="0.4"/>
-                        <!-- AERO -->
                         <text x="240" y="160" text-anchor="middle" font-size="22" font-weight="500" fill="#f97316" letter-spacing="22" font-family="Oswald, sans-serif">AERO</text>
-                        <!-- Subtitle -->
                         <text x="240" y="185" text-anchor="middle" font-size="8" font-weight="600" fill="#94a3b8" letter-spacing="5" font-family="Inter, sans-serif">AEROSPACE RESEARCH &amp; DEVELOPMENT</text>
                     </svg>
                 </div>
@@ -423,7 +469,7 @@
             <div class="project-header">
                 <div class="project-number">01</div>
                 <div class="project-info">
-                    <h2>Summer Fixed-Wing Builds & First Flights</h2>
+                    <h2>Summer Fixed-Wing Builds &amp; First Flights</h2>
                     <div class="project-tags">
                         <span class="tag tag-season">SUMMER 2025</span>
                         <span class="tag tag-type">FIXED-WING</span>
@@ -432,7 +478,6 @@
                     <p class="project-desc">Our first real club flights — assembling and flying the FlightTest FT Explorer foam board trainer, alongside a set of 3D-printed aircraft. These sessions gave us hands-on experience with aircraft assembly, CG balancing, control surface setup, and hand-launch techniques before ever turning on the transmitter.</p>
                 </div>
             </div>
-
             <div class="project-specs">
                 <div class="specs-label">PROJECT SPECS</div>
                 <div class="specs-grid">
@@ -467,7 +512,6 @@
 
     <footer>
         <div class="container">
-            <!-- Mini footer logo -->
             <div class="footer-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 50" width="80">
                     <defs>
