@@ -128,6 +128,7 @@
             padding: 2.5rem;
             margin: 2rem auto;
             max-width: 1100px;
+            text-align: center;
         }
 
         h2 {
@@ -168,113 +169,14 @@
             font-size: 0.95rem;
         }
 
-        p:last-child { margin-bottom: 0; }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            letter-spacing: 0.01em;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
+        p:last-child {
+            margin-bottom: 0;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.35);
-        }
-
-        /* ===== HERO BANNER ===== */
-        .hero-banner {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3.5rem 2.5rem;
-            margin: 2rem auto;
-            max-width: 1100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-        }
-
-        /* Decorative contrail swooshes in hero */
-        .hero-banner::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            right: 30px;
-            width: 120px;
-            height: 40px;
-            opacity: 0.06;
-            background: 
-                linear-gradient(to right, transparent, var(--accent)) no-repeat 0 8px / 100% 2px,
-                linear-gradient(to right, transparent 20%, var(--accent)) no-repeat 0 16px / 100% 1.5px,
-                linear-gradient(to right, transparent 40%, var(--accent)) no-repeat 0 22px / 100% 1px;
-        }
-
-        .hero-tagline {
-            font-family: 'Oswald', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            letter-spacing: 0.06em;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .hero-desc {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 700px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* ===== DECORATIVE SEPARATOR ===== */
-        .section-sep {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            margin: 0.5rem auto;
-            max-width: 1100px;
-            padding: 0 24px;
-            opacity: 0.3;
-        }
-
-        .section-sep .trail-left {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to left, var(--accent), transparent);
-        }
-
-        .section-sep .trail-right {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(to right, var(--accent), transparent);
-        }
-
-        .section-sep .rocket-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--accent);
-            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        .coming-soon {
+            font-size: 1.2rem;
+            color: var(--text);
+            margin: 2rem 0;
         }
 
         /* ===== FOOTER ===== */
@@ -317,11 +219,19 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-logo svg { max-width: 280px; }
-            section { padding: 1.75rem; margin: 1rem auto; }
-            nav ul li a { padding: 0.75rem 1rem; font-size: 0.8rem; }
-            .hero-tagline { font-size: 1.5rem; }
-            .hero-banner { padding: 2.5rem 1.5rem; }
+            .header-logo svg {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 1.75rem;
+                margin: 1rem auto;
+            }
+
+            nav ul li a {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -375,35 +285,18 @@
 
     <nav>
         <ul>
-            <li><a href="index.html" >Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="research.html" class="active">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="resources.html">Resources</a></li>
             <li><a href="team.html">Team</a></li>
         </ul>
     </nav>
 
     <div class="container">
-
-        <!-- Decorative separator -->
-        <div class="section-sep">
-            <span class="trail-left"></span>
-            <span class="rocket-dot"></span>
-            <span class="trail-right"></span>
-        </div>
-
         <section>
-            <h2>Research &amp; Testing</h2>
-            <div style="text-align: center; padding: 3rem 0;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="60" style="opacity: 0.15; margin-bottom: 1rem;">
-                    <path d="M40 5 L48 35 L44 35 L44 55 L36 55 L36 35 L32 35 Z" fill="#f97316"/>
-                    <path d="M36 48 L29 58 L36 54 Z" fill="#ea580c"/>
-                    <path d="M44 48 L51 58 L44 54 Z" fill="#ea580c"/>
-                    <path d="M38 55 L40 68 L42 55" fill="#fb923c" opacity="0.6"/>
-                </svg>
-                <p style="color: #94a3b8; font-size: 1.1rem; font-weight: 500;">Research findings coming soon.</p>
-                <p style="color: #64748b; font-size: 0.9rem;">Our team is currently conducting research in aerodynamics, materials science, and propulsion. Results will be published here as projects are completed.</p>
-            </div>
+            <h2>Research & Testing</h2>
+            <p class="coming-soon">Research findings coming soon.</p>
+            <p>Our team is currently conducting research in aerodynamics, materials science, and propulsion. Results will be published here as projects are completed.</p>
         </section>
     </div>
 
