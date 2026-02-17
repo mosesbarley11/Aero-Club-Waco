@@ -168,7 +168,9 @@
             font-size: 0.95rem;
         }
 
-        p:last-child { margin-bottom: 0; }
+        p:last-child {
+            margin-bottom: 0;
+        }
 
         .btn {
             display: inline-block;
@@ -222,7 +224,7 @@
             width: 120px;
             height: 40px;
             opacity: 0.06;
-            background: 
+            background:
                 linear-gradient(to right, transparent, var(--accent)) no-repeat 0 8px / 100% 2px,
                 linear-gradient(to right, transparent 20%, var(--accent)) no-repeat 0 16px / 100% 1.5px,
                 linear-gradient(to right, transparent 40%, var(--accent)) no-repeat 0 22px / 100% 1px;
@@ -317,11 +319,27 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .header-logo svg { max-width: 280px; }
-            section { padding: 1.75rem; margin: 1rem auto; }
-            nav ul li a { padding: 0.75rem 1rem; font-size: 0.8rem; }
-            .hero-tagline { font-size: 1.5rem; }
-            .hero-banner { padding: 2.5rem 1.5rem; }
+            .header-logo svg {
+                max-width: 280px;
+            }
+
+            section {
+                padding: 1.75rem;
+                margin: 1rem auto;
+            }
+
+            nav ul li a {
+                padding: 0.75rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .hero-tagline {
+                font-size: 1.5rem;
+            }
+
+            .hero-banner {
+                padding: 2.5rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -378,7 +396,6 @@
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="projects.html">Projects</a></li>
-            <li><a href="resources.html">Resources</a></li>
             <li><a href="team.html">Team</a></li>
         </ul>
     </nav>
@@ -403,7 +420,7 @@
             <p>Welcome to Waco Aero, a student-led aerospace research and development club dedicated to hands-on learning in aviation, rocketry, and aerospace engineering. Our members design, build, and test aircraft, conduct materials research, and explore the fascinating world of flight.</p>
             <p>Founded in 2025, our club brings together students from multiple schools across our city who are passionate about aerospace to collaborate on real-world engineering projects.</p>
             <p>We welcome All students, no prior experience required!</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWy0bQWR5lz6IIJlPSKDxEqXwjbhVCclHdPKsSt0e42GBe3g/viewform?usp=publish-editor"btn" target="_blank">Get Involved</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWy0bQWR5lz6IIJlPSKDxEqXwjbhVCclHdPKsSt0e42GBe3g/viewform?usp=publish-editor" class="btn" target="_blank">Get Involved</a>
         </section>
     </div>
 
