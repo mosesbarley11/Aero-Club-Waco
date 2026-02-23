@@ -6,9 +6,7 @@
     <title>Team - Waco Aero - High School Aerospace Research Club</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --deep: #0a0e1a;
             --dark: #0f172a;
@@ -26,7 +24,6 @@
             --border: #334155;
             --white: #f8fafc;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
@@ -34,7 +31,6 @@
             background-color: var(--deep);
             overflow-x: hidden;
         }
-
         /* ===== HEADER ===== */
         header {
             background: var(--dark);
@@ -43,7 +39,6 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -54,7 +49,6 @@
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
         }
-
         header::after {
             content: '';
             position: absolute;
@@ -65,27 +59,23 @@
             background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
         }
-
         .header-content {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .header-logo svg {
             display: block;
             max-width: 380px;
             width: 100%;
             height: auto;
         }
-
         /* ===== NAV ===== */
         nav {
             background-color: var(--dark);
@@ -94,7 +84,6 @@
             top: 0;
             z-index: 100;
         }
-
         nav ul {
             display: flex;
             justify-content: center;
@@ -103,7 +92,6 @@
             margin: 0 auto;
             flex-wrap: wrap;
         }
-
         nav ul li a {
             display: block;
             padding: 1rem 1.75rem;
@@ -116,13 +104,11 @@
             transition: color 0.3s, background 0.3s;
             white-space: nowrap;
         }
-
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--accent);
             background: var(--accent-glow);
         }
-
         /* ===== SECTIONS ===== */
         section {
             background: var(--surface);
@@ -132,7 +118,6 @@
             margin: 2rem auto;
             max-width: 1100px;
         }
-
         h2 {
             font-family: 'Oswald', sans-serif;
             font-size: 1.5rem;
@@ -145,14 +130,12 @@
             align-items: center;
             gap: 0.75rem;
         }
-
         h2::after {
             content: '';
             flex: 1;
             height: 1px;
             background: linear-gradient(to right, var(--accent) 0%, transparent 100%);
         }
-
         h2::before {
             content: '';
             display: inline-block;
@@ -162,15 +145,12 @@
             clip-path: polygon(50% 0%, 65% 45%, 85% 55%, 65% 55%, 65% 85%, 55% 100%, 50% 85%, 45% 100%, 35% 85%, 35% 55%, 15% 55%, 35% 45%);
             flex-shrink: 0;
         }
-
         p {
             color: var(--text-dim);
             margin-bottom: 1rem;
             font-size: 0.95rem;
         }
-
         p:last-child { margin-bottom: 0; }
-
         /* ===== TEAM MEMBERS ===== */
         .team-grid {
             display: grid;
@@ -178,9 +158,7 @@
             gap: 2rem;
             margin-top: 2rem;
         }
-
         .team-member { text-align: center; }
-
         .member-photo {
             width: 150px;
             height: 150px;
@@ -193,13 +171,11 @@
             align-items: center;
             justify-content: center;
         }
-
         .member-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
         .member-photo .initials {
             font-family: 'Oswald', sans-serif;
             font-size: 2.2rem;
@@ -207,7 +183,6 @@
             color: var(--accent);
             letter-spacing: 0.05em;
         }
-
         .member-name {
             font-family: 'Oswald', sans-serif;
             font-size: 1.2rem;
@@ -215,7 +190,6 @@
             color: var(--white);
             margin-bottom: 0.25rem;
         }
-
         .member-role {
             color: var(--accent);
             font-size: 0.85rem;
@@ -224,12 +198,10 @@
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
         }
-
         .member-school {
             color: var(--text-dim);
             font-size: 0.85rem;
         }
-
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
@@ -244,12 +216,10 @@
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(249, 115, 22, 0.25);
         }
-
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(249, 115, 22, 0.35);
         }
-
         /* ===== FOOTER ===== */
         footer {
             background-color: var(--dark);
@@ -259,7 +229,6 @@
             margin-top: 2rem;
             position: relative;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -270,125 +239,94 @@
             height: 1px;
             background: linear-gradient(to right, transparent, var(--accent), transparent);
         }
-
         footer p {
             color: var(--text-dim);
             font-size: 0.85rem;
         }
-
         footer p:first-child {
             color: var(--text);
             font-weight: 500;
         }
-
         .footer-logo {
             display: flex;
             justify-content: center;
             margin-bottom: 1rem;
             opacity: 0.4;
         }
-
         /* ===== RESPONSIVE: TABLET ===== */
         @media (max-width: 768px) {
             .header-logo svg { max-width: 260px; }
-
             header { padding: 1.5rem 0 2rem; }
-
             .container { padding: 0 16px; }
-
             nav ul li a {
                 padding: 0.75rem 1rem;
                 font-size: 0.8rem;
                 letter-spacing: 0.03em;
             }
-
             section {
                 padding: 1.75rem;
                 margin: 1rem auto;
             }
-
             .team-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1.5rem;
             }
-
             .member-photo {
                 width: 120px;
                 height: 120px;
             }
-
             .member-photo .initials { font-size: 1.8rem; }
         }
-
         /* ===== RESPONSIVE: MOBILE ===== */
         @media (max-width: 480px) {
             .header-logo svg { max-width: 200px; }
-
             header { padding: 1.25rem 0 1.5rem; }
-
             .container { padding: 0 12px; }
-
             nav ul { justify-content: space-around; }
-
             nav ul li {
                 flex: 1;
                 text-align: center;
             }
-
             nav ul li a {
                 padding: 0.65rem 0.5rem;
                 font-size: 0.72rem;
                 letter-spacing: 0.02em;
             }
-
             section {
                 padding: 1.25rem;
                 margin: 0.75rem auto;
                 border-radius: 8px;
             }
-
             h2 { font-size: 1.2rem; }
-
             .team-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.25rem;
             }
-
             .member-photo {
                 width: 100px;
                 height: 100px;
             }
-
             .member-photo .initials { font-size: 1.5rem; }
-
             .member-name { font-size: 1rem; }
-
             .member-role { font-size: 0.75rem; }
-
             .member-school { font-size: 0.78rem; }
-
             .btn {
                 padding: 0.7rem 1.5rem;
                 font-size: 0.9rem;
                 width: 100%;
                 text-align: center;
             }
-
             p { font-size: 0.9rem; }
         }
-
         /* ===== RESPONSIVE: TINY (320px) ===== */
         @media (max-width: 360px) {
             .header-logo svg { max-width: 170px; }
-
             nav ul li a {
                 font-size: 0.65rem;
                 padding: 0.6rem 0.4rem;
                 letter-spacing: 0;
             }
-
             .team-grid { gap: 1rem; }
-
             .member-photo {
                 width: 90px;
                 height: 90px;
@@ -436,7 +374,6 @@
             </div>
         </div>
     </header>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -445,99 +382,24 @@
             <li><a href="team.html" class="active">Team</a></li>
         </ul>
     </nav>
-
     <div class="container">
         <section>
             <h2>Our Team</h2>
             <div class="team-grid">
-
                 <div class="team-member">
                     <div class="member-photo"><img src="moses.jpg" alt="Moses Barley"></div>
                     <div class="member-name">Moses Barley</div>
                     <div class="member-role">Co-Founder &amp; Lead</div>
                     <div class="member-school">Valor &middot; Class of 2029</div>
                 </div>
-
                 <div class="team-member">
                     <div class="member-photo"><img src="shepherd.jpg" alt="Shepherd Barley"></div>
                     <div class="member-name">Shepherd Barley</div>
                     <div class="member-role">Co-Founder</div>
                     <div class="member-school">Vanguard &middot; Class of 2028</div>
                 </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">RS</span></div>
-                    <div class="member-name">Roman Sykora</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Class of 2028</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">RA</span></div>
-                    <div class="member-name">River Ackley</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2029</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">AM</span></div>
-                    <div class="member-name">Aidan Murray</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2029</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">JK</span></div>
-                    <div class="member-name">Jack Karnes</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2029</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">HA</span></div>
-                    <div class="member-name">Hudson Anderson</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2028</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">CK</span></div>
-                    <div class="member-name">Caleb Kanawyer</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2028</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">CO</span></div>
-                    <div class="member-name">Campbell Oates</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Midway High &middot; Class of 2028</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">EJ</span></div>
-                    <div class="member-name">Elliott Jensen</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Valor &middot; Class of 2029</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">MJ</span></div>
-                    <div class="member-name">Miller Jobson</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Live Oak &middot; Class of 2028</div>
-                </div>
-
-                <div class="team-member">
-                    <div class="member-photo"><span class="initials">JS</span></div>
-                    <div class="member-name">James Scott</div>
-                    <div class="member-role">Member</div>
-                    <div class="member-school">Vanguard &middot; Class of 2028</div>
-                </div>
-
             </div>
         </section>
-
         <section>
             <h2>Join Waco Aero</h2>
             <p>We're always looking for new members who are passionate about aerospace engineering, rocketry, and aviation. No prior experience required — just bring your curiosity and willingness to learn.</p>
@@ -550,7 +412,6 @@
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWy0bQWR5lz6IIJlPSKDxEqXwjbhVCclHdPKsSt0e42GBe3g/viewform?usp=publish-editor" class="btn" target="_blank">Join Us</a>
         </section>
     </div>
-
     <footer>
         <div class="container">
             <div class="footer-logo">
