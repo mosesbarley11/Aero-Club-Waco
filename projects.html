@@ -6,9 +6,7 @@
     <title>Projects - Waco Aero - High School Aerospace Research Club</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         :root {
             --deep: #0a0e1a;
             --dark: #0f172a;
@@ -26,7 +24,6 @@
             --border: #334155;
             --white: #f8fafc;
         }
-
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
@@ -34,7 +31,6 @@
             background-color: var(--deep);
             overflow-x: hidden;
         }
-
         /* ===== HEADER ===== */
         header {
             background: var(--dark);
@@ -43,7 +39,6 @@
             position: relative;
             overflow: hidden;
         }
-
         header::before {
             content: '';
             position: absolute;
@@ -54,7 +49,6 @@
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
         }
-
         header::after {
             content: '';
             position: absolute;
@@ -65,27 +59,23 @@
             background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
-
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
         }
-
         .header-content {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .header-logo svg {
             display: block;
             max-width: 380px;
             width: 100%;
             height: auto;
         }
-
         /* ===== NAV ===== */
         nav {
             background-color: var(--dark);
@@ -94,7 +84,6 @@
             top: 0;
             z-index: 100;
         }
-
         nav ul {
             display: flex;
             justify-content: center;
@@ -103,7 +92,6 @@
             margin: 0 auto;
             flex-wrap: wrap;
         }
-
         nav ul li a {
             display: block;
             padding: 1rem 1.75rem;
@@ -116,13 +104,11 @@
             transition: color 0.3s, background 0.3s;
             white-space: nowrap;
         }
-
         nav ul li a:hover,
         nav ul li a.active {
             color: var(--accent);
             background: var(--accent-glow);
         }
-
         /* ===== PAGE HEADER ===== */
         .page-header {
             background: var(--surface);
@@ -132,7 +118,6 @@
             margin: 2rem auto;
             max-width: 1100px;
         }
-
         .page-header-label {
             font-size: 0.75rem;
             color: var(--accent);
@@ -141,7 +126,6 @@
             text-transform: uppercase;
             margin-bottom: 0.5rem;
         }
-
         .page-header h1 {
             font-family: 'Oswald', sans-serif;
             font-size: 2.5rem;
@@ -149,13 +133,11 @@
             color: var(--white);
             margin-bottom: 0.75rem;
         }
-
         .page-header p {
             color: var(--text-dim);
             font-size: 1rem;
             max-width: 700px;
         }
-
         /* ===== PROJECT CARDS ===== */
         .project {
             background: var(--surface);
@@ -165,14 +147,12 @@
             margin: 2rem auto;
             max-width: 1100px;
         }
-
         .project-header {
             display: flex;
             align-items: flex-start;
             gap: 2rem;
             margin-bottom: 2rem;
         }
-
         .project-number {
             font-family: 'Oswald', sans-serif;
             font-size: 4rem;
@@ -181,9 +161,7 @@
             line-height: 1;
             flex-shrink: 0;
         }
-
         .project-info { flex: 1; }
-
         .project-info h2 {
             font-family: 'Oswald', sans-serif;
             font-size: 1.8rem;
@@ -192,17 +170,14 @@
             margin-bottom: 0.75rem;
             display: block;
         }
-
         .project-info h2::before,
         .project-info h2::after { display: none; }
-
         .project-tags {
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
             margin-bottom: 1rem;
         }
-
         .tag {
             padding: 0.35rem 0.75rem;
             border-radius: 4px;
@@ -211,39 +186,33 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .tag-season {
             background: rgba(249, 115, 22, 0.15);
             color: var(--accent);
             border: 1px solid rgba(249, 115, 22, 0.3);
         }
-
         .tag-type {
             background: rgba(56, 189, 248, 0.15);
             color: var(--blue);
             border: 1px solid rgba(56, 189, 248, 0.3);
         }
-
         .tag-status {
             background: rgba(34, 197, 94, 0.15);
             color: #22c55e;
             border: 1px solid rgba(34, 197, 94, 0.3);
         }
-
         .project-desc {
             color: var(--text-dim);
             font-size: 1rem;
             line-height: 1.7;
             margin-bottom: 2rem;
         }
-
         .project-specs {
             background: rgba(15, 23, 42, 0.5);
             border: 1px solid var(--border);
             border-radius: 8px;
             padding: 1.5rem;
         }
-
         .specs-label {
             font-size: 0.7rem;
             color: var(--text-dim);
@@ -252,15 +221,12 @@
             text-transform: uppercase;
             margin-bottom: 1rem;
         }
-
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
         }
-
         .spec-item { display: flex; flex-direction: column; }
-
         .spec-label {
             font-size: 0.7rem;
             color: var(--text-dim);
@@ -268,15 +234,12 @@
             letter-spacing: 0.05em;
             margin-bottom: 0.25rem;
         }
-
         .spec-value {
             font-size: 1rem;
             color: var(--white);
             font-weight: 600;
         }
-
         .spec-value.success { color: #22c55e; }
-
         /* ===== FOOTER ===== */
         footer {
             background-color: var(--dark);
@@ -286,7 +249,6 @@
             margin-top: 2rem;
             position: relative;
         }
-
         footer::before {
             content: '';
             position: absolute;
@@ -297,113 +259,81 @@
             height: 1px;
             background: linear-gradient(to right, transparent, var(--accent), transparent);
         }
-
         footer p {
             color: var(--text-dim);
             font-size: 0.85rem;
         }
-
         footer p:first-child {
             color: var(--text);
             font-weight: 500;
         }
-
         .footer-logo {
             display: flex;
             justify-content: center;
             margin-bottom: 1rem;
             opacity: 0.4;
         }
-
         /* ===== RESPONSIVE: TABLET ===== */
         @media (max-width: 768px) {
             .header-logo svg { max-width: 260px; }
-
             header { padding: 1.5rem 0 2rem; }
-
             .container { padding: 0 16px; }
-
             nav ul li a {
                 padding: 0.75rem 1rem;
                 font-size: 0.8rem;
                 letter-spacing: 0.03em;
             }
-
             .project, .page-header {
                 padding: 1.75rem;
                 margin: 1rem auto;
             }
-
             .page-header h1 { font-size: 2rem; }
-
             .project-header {
                 flex-direction: column;
                 gap: 0.75rem;
             }
-
             .project-number { font-size: 3rem; }
-
             .project-info h2 { font-size: 1.5rem; }
-
             .specs-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         /* ===== RESPONSIVE: MOBILE ===== */
         @media (max-width: 480px) {
             .header-logo svg { max-width: 200px; }
-
             header { padding: 1.25rem 0 1.5rem; }
-
             .container { padding: 0 12px; }
-
             nav ul { justify-content: space-around; }
-
             nav ul li {
                 flex: 1;
                 text-align: center;
             }
-
             nav ul li a {
                 padding: 0.65rem 0.5rem;
                 font-size: 0.72rem;
                 letter-spacing: 0.02em;
             }
-
             .project, .page-header {
                 padding: 1.25rem;
                 margin: 0.75rem auto;
                 border-radius: 8px;
             }
-
             .page-header h1 { font-size: 1.6rem; }
-
             .page-header-label { font-size: 0.7rem; }
-
             .project-number { font-size: 2.5rem; }
-
             .project-info h2 { font-size: 1.25rem; }
-
             .project-desc { font-size: 0.9rem; }
-
             .specs-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-
             .spec-value { font-size: 0.9rem; }
-
             .tag { font-size: 0.68rem; padding: 0.3rem 0.6rem; }
         }
-
         /* ===== RESPONSIVE: TINY (320px) ===== */
         @media (max-width: 360px) {
             .header-logo svg { max-width: 170px; }
-
             nav ul li a {
                 font-size: 0.65rem;
                 padding: 0.6rem 0.4rem;
                 letter-spacing: 0;
             }
-
             .specs-grid { grid-template-columns: 1fr; }
-
             .page-header h1 { font-size: 1.4rem; }
         }
     </style>
@@ -448,7 +378,6 @@
             </div>
         </div>
     </header>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -457,14 +386,12 @@
             <li><a href="team.html">Team</a></li>
         </ul>
     </nav>
-
     <div class="container">
         <div class="page-header">
             <div class="page-header-label">WACO AERO CLUB</div>
             <h1>Project Gallery</h1>
             <p>Real aircraft. Real builds. Real flights. Documenting every project from initial design through construction and first flight.</p>
         </div>
-
         <div class="project">
             <div class="project-header">
                 <div class="project-number">01</div>
@@ -508,8 +435,50 @@
                 </div>
             </div>
         </div>
+        <div class="project">
+            <div class="project-header">
+                <div class="project-number">02</div>
+                <div class="project-info">
+                    <h2>From Sketch to Solid: Introduction to CAD Design</h2>
+                    <div class="project-tags">
+                        <span class="tag tag-season">FALL 2025</span>
+                        <span class="tag tag-type">CAD / DESIGN</span>
+                        <span class="tag tag-status">COMPLETED</span>
+                    </div>
+                    <p class="project-desc">A collaborative intro course led by the President and Vice President of the Baylor University Aerospace Club. Members were walked through the fundamentals of computer-aided design — from reading engineering drawings and setting up a workspace, to modeling basic aerospace components from scratch. The session bridged the gap between our flight builds and the engineering workflow behind them, giving the club a foundation for designing parts in-house for future projects.</p>
+                </div>
+            </div>
+            <div class="project-specs">
+                <div class="specs-label">SESSION SPECS</div>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <div class="spec-label">INSTRUCTORS</div>
+                        <div class="spec-value">Baylor Aerospace Club</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">INSTRUCTOR ROLES</div>
+                        <div class="spec-value">President &amp; Vice President</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">COURSE TYPE</div>
+                        <div class="spec-value">Intro Workshop</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">FOCUS AREA</div>
+                        <div class="spec-value">3D Modeling &amp; Part Design</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">OUTCOME</div>
+                        <div class="spec-value success">Completed ✓</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">LOCATION</div>
+                        <div class="spec-value">Waco, TX</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <footer>
         <div class="container">
             <div class="footer-logo">
