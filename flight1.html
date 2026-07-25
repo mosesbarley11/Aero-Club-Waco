@@ -270,7 +270,8 @@
             letter-spacing: 0.05em;
         }
 
-        .entry-deck {
+        /* Selector must out-specify `.research-entry p` below, or the size is ignored. */
+        .research-entry p.entry-deck {
             font-family: 'Oswald', sans-serif;
             font-size: 1.65rem;
             font-weight: 600;
@@ -507,7 +508,7 @@
 
             .entry-title { font-size: 1.1rem; }
 
-            .entry-deck { font-size: 1.3rem; margin-bottom: 1.35rem; }
+            .research-entry p.entry-deck { font-size: 1.3rem; margin-bottom: 1.35rem; }
 
             .entry-date { margin-left: 0; width: 100%; }
 
@@ -644,7 +645,7 @@
             <div class="entry-block">
                 <div class="entry-label">Overview</div>
                 <p>The full flight from liftoff to touchdown, measured by the onboard barometer, overlaid with our pre-flight OpenRocket prediction. The rocket boosted for about 1 second, coasted for 7.3 more, deployed at 8.3 seconds, topped out at 575&nbsp;m (1,887&nbsp;ft) at 9.7 seconds, and rode the chute down for 87 seconds to a soft landing.</p>
-                <img class="chart-full" src="flight1_profile.png" alt="Flight 1 altitude profile: actual barometer data versus OpenRocket simulation, with boost and coast detail">
+                <img class="chart-full" src="flight1_profile.svg" alt="Flight 1 altitude profile: actual barometer data peaking at 575 m versus the OpenRocket simulation peaking at 721 m, with a boost and coast detail panel showing burnout, ejection and apogee">
                 <p class="photo-caption">Left: full flight, actual (orange) vs. simulation (dashed blue). Right: boost and coast detail with vertical velocity.</p>
             </div>
             <div class="entry-block">
@@ -669,30 +670,32 @@
         <!-- SECTION 2: SIM VS ACTUAL -->
         <article class="research-entry">
             <div class="entry-head">
-                <h3 class="entry-title">Simulation vs. Reality: A 26% Overshoot</h3>
+                <h3 class="entry-title">Simulation vs. Reality: A 25% Overshoot</h3>
                 <div class="entry-meta">
                     <span class="tag">Analysis</span>
                     <span class="tag blue">OpenRocket</span>
                     <span class="entry-date">July 2026</span>
                 </div>
             </div>
-            <p class="entry-deck">Our pre-flight prediction came in 26% high. Here's the side-by-side, and what the gap says about drag and weight.</p>
+            <p class="entry-deck">Our pre-flight prediction came in 25% high. Here's the side-by-side, and what the gap says about drag and weight.</p>
             <div class="entry-block">
                 <div class="entry-label">The Numbers</div>
                 <table class="data-table">
                     <thead><tr><th>Metric</th><th>OpenRocket Sim</th><th>Actual</th><th>Difference</th></tr></thead>
                     <tbody>
-                        <tr><td><strong>Apogee (AGL)</strong></td><td>723 m</td><td>575 m</td><td>Sim over by 26%</td></tr>
-                        <tr><td><strong>Max velocity</strong></td><td>181 m/s</td><td>~153 m/s</td><td>Sim over by ~16%</td></tr>
+                        <tr><td><strong>Apogee (AGL)</strong></td><td>721 m</td><td>575 m</td><td>Sim over by 25%</td></tr>
+                        <tr><td><strong>Max velocity</strong></td><td>181 m/s</td><td>~153 m/s</td><td>Sim over by ~18%</td></tr>
                         <tr><td><strong>Burn time</strong></td><td>1.08 s</td><td>~1.0 s</td><td>Match</td></tr>
                         <tr><td><strong>Time to apogee</strong></td><td>10.7 s</td><td>9.7 s</td><td>&minus;1.0 s</td></tr>
-                        <tr><td><strong>Descent rate</strong></td><td>6.2 m/s</td><td>6.6 m/s</td><td>Close match</td></tr>
+                        <tr><td><strong>Descent rate</strong></td><td>5.8 m/s</td><td>6.6 m/s</td><td>Sim under by 12%</td></tr>
                     </tbody>
                 </table>
             </div>
             <div class="entry-block">
                 <div class="entry-label">Interpretation</div>
-                <p>The motor performed exactly as expected &mdash; burn time matched the sim almost perfectly. But the rocket flew slower and lower than predicted, which means it experienced more drag and/or carried more mass than the model assumed. Both signals point the same direction: our simulated rocket was cleaner and lighter than the real one. Surface finish, launch hardware, epoxy fillets, paint, and the data logger all add drag and weight that the simulation underestimates.</p>
+                <p>The motor performed exactly as expected &mdash; burn time matched the sim almost perfectly. Everything else points one direction. The rocket flew <em>slower</em> than predicted, and it also fell <em>faster</em> than predicted. Both of those are what you see when a rocket is heavier than its model.</p>
+                <p>The descent is the useful one, because it lets us put a number on it. Under an open parachute the airframe's own drag barely matters, so descent rate depends almost entirely on mass. The model predicted 5.8&nbsp;m/s and we measured 6.6&nbsp;m/s. Working backwards from the same chute, that means the real rocket weighed roughly <strong>1,330&nbsp;g at landing against the 1,036&nbsp;g in the model &mdash; about 300&nbsp;g unaccounted for</strong>, close to a quarter of the airframe. Epoxy, paint, launch lugs, wiring, tape and the data logger bay hardware all add up, and none of it was in the model.</p>
+                <p>So before blaming aerodynamics for the 146&nbsp;m shortfall, the mass has to go in. Our next step is to weigh the finished rocket, put the missing mass into OpenRocket where it actually sits, and re-run &mdash; then see how much of the gap is genuinely drag.</p>
                 <p>A small part of the gap has a separate, known cause: early parachute deployment, covered in the next section.</p>
             </div>
             <div class="callout">
@@ -717,22 +720,29 @@
             </div>
             <div class="entry-block">
                 <div class="entry-label">What It Cost</div>
-                <p>A rocket climbing at ~25&ndash;30&nbsp;m/s and decelerating at ~10.5&ndash;11.5&nbsp;m/s&sup2; (gravity plus a little drag) had roughly 30&ndash;40&nbsp;m of climb left in it. We banked about 6&nbsp;m of that. Our best estimate is that early deployment cost <strong>roughly 30&nbsp;m (~100&nbsp;ft) of apogee</strong> &mdash; without it, the flight would have peaked around 600&ndash;615&nbsp;m instead of 575&nbsp;m.</p>
+                <p>A rocket climbing at ~25&ndash;30&nbsp;m/s and decelerating at ~10.5&ndash;11.5&nbsp;m/s&sup2; (gravity plus a little drag) had roughly 30&ndash;40&nbsp;m of climb left in it. We banked about 6&nbsp;m of that. Our best estimate is that early deployment cost <strong>roughly 20&ndash;30&nbsp;m (65&ndash;100&nbsp;ft) of apogee</strong> &mdash; without it, the flight would have peaked somewhere around 595&ndash;615&nbsp;m instead of 575&nbsp;m. The simulation, run below, lands at the bottom of that range.</p>
                 <table class="data-table">
                     <thead><tr><th>Scenario</th><th>Apogee (approx.)</th></tr></thead>
                     <tbody>
                         <tr><td><strong>Actual (deployed 1.4 s early)</strong></td><td>575 m / 1,887 ft</td></tr>
-                        <tr><td><strong>Estimated ballistic (deploy at peak)</strong></td><td>~600&ndash;615 m / ~1,970&ndash;2,020 ft</td></tr>
+                        <tr><td><strong>Estimated ballistic (deploy at peak)</strong></td><td>~595&ndash;615 m / ~1,950&ndash;2,020 ft</td></tr>
                     </tbody>
                 </table>
                 <p>Uncertainty note: the barometer reading is disturbed for a moment by the ejection charge's pressure pulse, so the deployment velocity carries real uncertainty &mdash; that is why we report a range rather than one number.</p>
+            </div>
+            <div class="entry-block">
+                <div class="entry-label">Splitting the Gap</div>
+                <p>The estimate above is hand-worked kinematics. We can also let the simulation answer it directly. Below, our OpenRocket model flies twice: once with the chute at the motor's 14-second factory delay, which leaves the rocket free to coast to its full peak, and once with the chute forced open at 8.3&nbsp;seconds &mdash; the moment our charge actually fired. Nothing else changes between the two runs, so the distance between them is the cost of the timing alone, and the distance from there down to the measured flight is everything the model got wrong about the rocket itself.</p>
+                <img class="chart-full" src="early_deployment.svg" alt="Three altitude curves over the first 16 seconds: OpenRocket coasting to 721 m, OpenRocket with the chute forced open at 8.3 seconds reaching 702 m, and the measured barometer trace peaking at 575 m, with the 146 m gap split into 20 m from early deployment and 126 m from drag and mass">
+                <p class="photo-caption">Both simulated runs are the same flight until 8.3&nbsp;s &mdash; the violet curve is drawn only from the moment the chute opens.</p>
+                <p>Early deployment accounts for about <strong>20&nbsp;m</strong>, only around a seventh of the gap. The other <strong>126&nbsp;m</strong> is drag and unmodelled mass. That is the honest headline of this flight: the timing error is the one everybody notices, and it is by far the smaller problem. Our model of the rocket was wrong by six times more than our delay was.</p>
             </div>
             <div class="entry-block">
                 <div class="entry-label">Why It Fired Early</div>
                 <p>The motor's factory delay was drilled down to a ~10-second target (OpenRocket's computed optimum was 9.7&nbsp;s), but the delay actually burned for about 7.3 seconds &mdash; roughly 2.7 seconds short. Delay elements have real manufacturing and drilling tolerance, and this flight is our first measured data point on how much.</p>
             </div>
             <div class="callout">
-                <strong>Perspective:</strong> Firing 1.4&nbsp;s early at ~25&ndash;30&nbsp;m/s is a much better outcome than firing late &mdash; a late deployment happens while the rocket is accelerating downward, with higher shock loads on the harness. The chute and harness took the early deployment without damage. This also explains only ~20% of the 148&nbsp;m gap between simulation and reality &mdash; the rest is drag and mass, per the section above.
+                <strong>Perspective:</strong> Firing 1.4&nbsp;s early at ~25&ndash;30&nbsp;m/s is a much better outcome than firing late &mdash; a late deployment happens while the rocket is accelerating downward, with higher shock loads on the harness. The chute and harness took the early deployment without damage. This also explains only ~15% of the 146&nbsp;m gap between simulation and reality &mdash; the rest is drag and mass, per the section above.
             </div>
         </article>
 
@@ -950,5 +960,6 @@
             <p>Design. Fabricate. Fly.</p>
         </div>
     </footer>
+    <script src="lightbox.js" defer></script>
 </body>
 </html>
